@@ -10,18 +10,18 @@ export const SongList = () => {
     const {appData, appDispatch} = React.useContext(AppContext);
 
     return (
-        <div>
+        <div className="SongList">
             <ol>
                 {appData.library.slice(0, 15).map((song) => {
                     const {id, name, authors} = song;
                     return (
-                        <li>
+                        <li className="Song">
                             {name}
                             <ol>
                                 {authors.slice(0, 5).map((author) => {
                                     const {id, name} = author
                                     return (
-                                        <li>
+                                        <li className="Author">
                                             <Link to={`/author/${id}`} data-testid={id}>
                                                 {name}
                                             </Link>

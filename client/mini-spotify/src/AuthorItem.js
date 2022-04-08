@@ -27,7 +27,7 @@ export const AuthorItem = () => {
                         {songNames.map((song) => {
                                 const {id, name, authors} = song;
                                 return (
-                                    <li key={id}>
+                                    <li key={id} className="Song-name">
                                         {name}
                                     </li>
                                 )
