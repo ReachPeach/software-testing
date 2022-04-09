@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from "react";
 
 import "./App.css";
+import {useParams} from "react-router-dom";
 
 
 export default function AuthorItem() {
-    const queryParams = new URLSearchParams(window.location.search);
+    const {id} = useParams();
+
     const [songs, songsDispatch] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            songsDispatch(await (await fetch("http://localhost:4000" + "/author?id=" + id, {
+                credentials: "include"
+            })).json());
+        }
 
-    const id = parseInt(queryParams.get("id"))
-    useEffect(async () => {
-        songsDispatch(await (await fetch("http://localhost:4000" + "/author?id=" + id, {
-            credentials: "include"
-        })).json());
+        fetchData()
     }, []);
-
     const name = songs.length !== 0
-        ? songs.find(song => song.authors.find((author) => author.id === id)).authors.find((author) => author.id === id).name
+        ? songs.find(song => song.authors.find((author) => author.id === parseInt(id))).authors.find((author) => author.id === parseInt(id)).name
         : undefined
     return (
         <div className="author-item">

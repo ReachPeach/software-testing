@@ -13,22 +13,20 @@ const history = createBrowserHistory()
 
 function App() {
     return (
-        // <QueryClientProvider client={queryClient}>
-            <div className="App">
-                <header className="App-header">
-                    <h2>Getting started with React testing library</h2>
-                </header>
+        <div className="App">
+            <header className="App-header">
+                <h2>Getting started with React testing library</h2>
+            </header>
 
-                <div className="App-body">
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/author" element={<AuthorItem/>}/>
-                            <Route exact path="/" element={<SongList/>}/>
-                        </Routes>
-                    </BrowserRouter>
-                </div>
+            <div className="App-body">
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/author/:id" element={<AuthorItem/>}/>
+                        <Route exact path="/" element={<SongList/>}/>
+                    </Routes>
+                </BrowserRouter>
             </div>
-        // </QueryClientProvider>
+        </div>
     );
 }
 
