@@ -33,7 +33,7 @@ jobs:
       - name: Cliet npm build
         run: npm run build
         working-directory: ./client/mini-spotify
-
+        
       - name: Run unit tests
         run: npm run test Components
         working-directory: ./client/mini-spotify
@@ -42,4 +42,5 @@ jobs:
         run: |
           cd ./client/mini-spotify && npm start &
           cd ./server && npm start &
+          sleep 10
           cd ./client/mini-spotify && npx playwright test
