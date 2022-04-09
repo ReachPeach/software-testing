@@ -15,12 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build containers
-        run: docker-compose build
-
-      - name: Up containers
-        run: docker-compose up -d
-
       - name: Install node
         uses: actions/setup-node@v2
         with:
@@ -55,7 +49,3 @@ jobs:
       - name: run e2e tests
         run: npx playwright test
         working-directory: ./client/mini-spotify
-        
-      - name: Stop containers
-        if: always()
-        run: docker-compose down
