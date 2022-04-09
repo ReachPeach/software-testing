@@ -31,7 +31,7 @@ jobs:
         working-directory: ./server
         
       - name: Cliet npm build
-        run: npm build
+        run: npm run build
         working-directory: ./client/mini-spotify
 
       - name: Run unit tests
