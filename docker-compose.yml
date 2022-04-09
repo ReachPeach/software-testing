@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo:5
+    ports:
+      - "27017:27017"
+    network_mode: "bridge"
+  api:
+    build: server/
+    image: :latest
+    depends_on:
+      - mongo
+    network_mode: "host"
+  client:
+    build: client/mini-spotify
+    image: easy.soc.hacks.testing.client:latest
+    network_mode: "host"

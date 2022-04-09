@@ -1,0 +1,9 @@
+.gitignore
+.idea
+/*/target
+/*/.idea
+/*/.gradle
+/*/node_modules
+/*/*/node_modules
+/*/build
+/*/.mvn
