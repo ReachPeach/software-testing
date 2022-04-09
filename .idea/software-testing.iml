@@ -5,6 +5,12 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/back/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/back/target" />
+      <excludeFolder url="file://$MODULE_DIR$/selenide/.gradle/7.1/vcsMetadata-1" />
+      <excludeFolder url="file://$MODULE_DIR$/selenide/build/tmp/test" />
+      <excludeFolder url="file://$MODULE_DIR$/selenide/build/downloads" />
+      <excludeFolder url="file://$MODULE_DIR$/selenide/build/generated" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
