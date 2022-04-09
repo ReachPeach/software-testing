@@ -1,5 +1,4 @@
 import React from "react";
-import {library} from "./makeLibrary";
 
 export const AppContext = React.createContext({});
 
@@ -16,7 +15,7 @@ export const AppProvider = ({children}) => {
     };
 
     const [appData, appDispatch] = React.useReducer(reducer, {
-        library: library,
+        library: [],
         activeAuthor: {name: `Anonymous`},
     });
 
