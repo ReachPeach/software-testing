@@ -41,5 +41,5 @@ jobs:
       - name: run e2e tests
         run: |
           cd ./client/mini-spotify && npm start &
-          cd ./service && npm start &
+          cd ./server && npm start &
           cd ./client/mini-spotify && npx playwright test
