@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test('e2e test', async ({page}) => {
+test.only('e2e test', async ({page}) => {
     const URL = 'http://localhost:3000/';
     await page.goto(URL);
 
