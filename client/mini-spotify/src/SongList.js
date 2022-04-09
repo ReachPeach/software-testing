@@ -14,7 +14,7 @@ export default function SongList() {
             })).json());
         }
         fetchData()
-    }, []);
+    });
 
     return (
         <div className="SongList">
