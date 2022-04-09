@@ -17,5 +17,5 @@ jobs:
           cache: maven
           
       - name: Build with Maven
-        run: mvn -B package --file pom.xml -Dtest=SongServiceTest,SongControllerTest,SongControllerComponentsTest
+        run: mvn -B package --file pom.xml -Dtest=SongServiceTest,SongControllerComponentsTest,SongControllerTest
         working-directory: ./back
