@@ -1,0 +1,61 @@
+name: Client tests
+
+on: [ push, pull_request ]
+
+jobs:
+  docker:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build containers
+        run: docker-compose build
+
+      - name: Up containers
+        run: docker-compose up -d
+
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ./client/mini-spotify/package-lock.json
+
+      - name: Cliet npm ci
+        run: npm ci
+        working-directory: ./client/mini-spotify
+      
+      - name: Client's server npm ci
+        run: npm ci
+        working-directory: ./server
+        
+      - name: Cliet npm build
+        run: npm build
+        working-directory: ./client/mini-spotify
+
+      - name: Run unit tests
+        run: npm run test Components
+        working-directory: ./client/mini-spotify
+        
+      - name: Setup server
+        run: npm start
+        working-directory: ./client/mini-spotify
+        
+      - name: Setup service
+        run: npm start
+        working-directory: ./service
+        
+      - name: run e2e tests
+        run: npx playwright test
+        working-directory: ./client/mini-spotify
+        
+      - name: Stop containers
+        if: always()
+        run: docker-compose down
